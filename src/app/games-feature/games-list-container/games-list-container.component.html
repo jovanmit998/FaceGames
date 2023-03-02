@@ -1,0 +1,14 @@
+<app-side-navigation>
+  <h1>Ubisoft Game Board</h1>
+
+  <ng-container *ngrxLet="vm$ as vm">
+    <mat-spinner *ngIf="vm.isLoading; else gamesTemplate"></mat-spinner>
+    <ng-template #gamesTemplate>
+      <app-games
+        [allGames]="vm.games"
+        (openGameDialog)="onOpenGameDialog($event)"
+        (rateGame)="onGameRated($event)"
+      ></app-games>
+    </ng-template>
+  </ng-container>
+</app-side-navigation>

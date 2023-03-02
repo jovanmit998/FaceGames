@@ -1,0 +1,12 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    [opened]="isSideNavigationOpened | async"
+    (closedStart)="closeNavigationSideMenu()"
+    mode="push"
+  >
+    <app-side-nav-content></app-side-nav-content>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,49 @@
+<ng-container
+  *ngrxLet="{viewModel: vm$, selectedComment: commentForEdit$} as vm"
+>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-icon class="openGame" (click)="openGameInTab()">publish</mat-icon>
+  <h1 mat-dialog-title>{{ vm.viewModel.name }}</h1>
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="About the game">
+      <div mat-dialog-content>{{ vm.viewModel.description }}</div>
+      <br />
+      <mat-divider></mat-divider>
+    </mat-tab>
+
+    <mat-tab label="Second">Test 2</mat-tab>
+    <mat-tab label="Comments">
+      <form [formGroup]="dialogForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Leave a comment on this game</mat-label>
+          <textarea
+            matInput
+            placeholder="Your comments helps us to improve overall exeprience"
+            formControlName="comment"
+          ></textarea>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          (click)="onSubmitComment()"
+          [disabled]="!dialogForm.controls['comment'].value"
+          color="primary"
+          class="commentBtn"
+        >
+          POST
+        </button>
+      </form>
+      <div class="comments">
+        <app-comments
+          [gameComments]="vm.viewModel.comments"
+          (deleteComment)="onDeleteComment($event)"
+          (editComment)="onEditComment($event)"
+          [selectedCommentForEdit]="vm.selectedComment"
+          (enableCommentEditing)="onEnableDisableCommentEditing($event)"
+          (disableCommentEditing)="onEnableDisableCommentEditing($event)"
+        ></app-comments>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>

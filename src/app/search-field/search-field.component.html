@@ -1,0 +1,23 @@
+<ng-container *ngrxLet="filteredGames$ as games">
+  <form [formGroup]="navForm">
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input
+        type="text"
+        placeholder="Search for a game"
+        aria-label=""
+        matInput
+        [matAutocomplete]="auto"
+        formControlName="searchInput"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="openGame(games[0].id)"
+      >
+        <mat-option *ngFor="let game of games" [value]="game.name">
+          {{ game.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</ng-container>

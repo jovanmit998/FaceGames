@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 5px;
+}
+
+.child-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[mat-menu-item]:hover {
+  background-color: rgb(211, 209, 206);
+}
+
+.commentInfo {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-right: 0.6rem;
+}
+
+.menu {
+  font-size: 1.3em;
+}
+
+.comment-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .input-comment {
+    padding: 0.8rem;
+    border: 1px solid rgb(170, 164, 164);
+  }
+
+  .editText {
+    font-size: 0.8em;
+    display: flex;
+    gap: 1em;
+
+    span {
+      color: rgb(68, 68, 223);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

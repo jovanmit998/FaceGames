@@ -1,0 +1,49 @@
+<div *ngFor="let comment of gameComments; let i = index" class="container">
+  <div class="child-container">
+    <b> {{ "Jovan" }} </b>
+    <!--Replace with actual username-->
+    <div class="commentInfo">
+      <span *ngIf="comment['isEdited']">Edited</span>
+      <span>{{ comment["datePosted"] }} </span>
+    </div>
+  </div>
+  <div class="child-container">
+    <span
+      *ngIf="selectedCommentForEdit !== comment['comment']; else editableField"
+    >
+      {{ comment["comment"] }}
+    </span>
+    <ng-template #editableField>
+      <div class="comment-container">
+        <input
+          matInput
+          class="input-comment"
+          [formControl]="commentFormControl"
+          value="{{ comment['comment'] }}"
+        />
+        <mat-hint class="editText">
+          <span (click)="disableEditing()">Cancel</span>
+          <span (click)="saveEditedComment(comment['comment'], i)">Save</span>
+        </mat-hint>
+      </div>
+    </ng-template>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      *ngIf="selectedCommentForEdit !== comment['comment']"
+    >
+      <mat-icon class="menu">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu>
+      <button mat-menu-item (click)="enableEditing(comment)">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-menu-item (click)="deleteComment.emit(i)">
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </mat-menu>
+  </div>
+  <mat-divider></mat-divider>
+</div>

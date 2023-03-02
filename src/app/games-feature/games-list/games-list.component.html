@@ -1,0 +1,30 @@
+<div class="games-container">
+  <mat-card
+    *ngFor="let game of allGames | keyvalue; let gameIndex = index"
+    class="card-container"
+  >
+    <mat-card-title>{{ game.value.name }}</mat-card-title>
+    <img
+      mat-card-image
+      src="{{ game.value.imgSrc }}"
+      (click)="openGameDialog.emit(game.value.id)"
+    />
+    <mat-card-actions>
+      <button mat-raised-button color="warn" class="btn">Edit</button>
+      <span>
+        <a
+          *ngFor="let star of [1, 2, 3, 4, 5]; let starIndex = index"
+          class="rateStars"
+          [ngStyle]="{
+            color: starIndex <= game.value.rate ? 'gold' : 'black'
+          }"
+        >
+          <mat-icon
+            (click)="rateGame.emit({ index: gameIndex, rate: starIndex })"
+            >star</mat-icon
+          >
+        </a>
+      </span>
+    </mat-card-actions>
+  </mat-card>
+</div>

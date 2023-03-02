@@ -1,0 +1,10 @@
+<ng-container *ngrxLet="isSideMenuOpened as sideMenu">
+  <mat-toolbar color="warn" class="navbar">
+    <button mat-raised-button (click)="openSideMenu(sideMenu)" color="primary"
+    [@navToggle]="!sideMenu ? 'close' : 'open' ">
+      <mat-icon>{{!sideMenu ? 'arrow_forward': 'arrow_back'}}</mat-icon>
+    </button>
+      <span class="spacer"></span>
+      <app-search-field></app-search-field>
+  </mat-toolbar>
+</ng-container>
