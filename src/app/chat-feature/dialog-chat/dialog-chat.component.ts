@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,6 +10,4 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [MatButtonModule, MatIconModule, MatDialogModule],
 })
-export class DialogChatComponent implements OnInit {
-  ngOnInit(): void {}
-}
+export class DialogChatComponent {}

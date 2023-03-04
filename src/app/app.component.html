@@ -1,6 +1,12 @@
-<app-navigation></app-navigation>
+<ng-container *ngIf="!(isLoginPage | async); else loginPage">
+  <app-navigation></app-navigation>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
-<app-chat></app-chat>
-<app-footer></app-footer>
+  <app-chat></app-chat>
+  <app-footer></app-footer>
+</ng-container>
+
+<ng-template #loginPage>
+  <router-outlet></router-outlet>
+</ng-template>
