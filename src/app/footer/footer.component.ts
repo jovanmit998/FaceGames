@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -7,8 +8,6 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, CommonModule],
 })
-export class FooterComponent implements OnInit {
-  ngOnInit(): void {}
-}
+export class FooterComponent {}

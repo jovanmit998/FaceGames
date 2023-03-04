@@ -1,9 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { LetModule } from '@ngrx/component';
 import { ComponentStore } from '@ngrx/component-store';
-import { DialogChatComponent } from '../dialog-chat/dialog-chat.component';
+import { DialogChatComponent } from './dialog-chat/dialog-chat.component';
 
 interface ChatState {
   isDialogOpened: boolean;
@@ -16,14 +22,18 @@ interface ChatState {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ComponentStore],
   standalone: true,
-  imports: [MatIconModule, CommonModule],
+  imports: [MatIconModule, CommonModule, LetModule],
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
   private readonly chatDialog = inject(MatDialog);
   private readonly componentStore = inject(ComponentStore<ChatState>);
   readonly isChatOpened$ = this.componentStore.select(
-    (state) => state.isDialogOpened
+    (state: ChatState) => state.isDialogOpened
   );
+
+  ngOnInit(): void {
+    this.componentStore.setState({ isDialogOpened: false });
+  }
 
   openChatDialog() {
     const chatDialogRef = this.chatDialog.open(DialogChatComponent, {
@@ -33,7 +43,7 @@ export class ChatComponent {
       hasBackdrop: false,
       position: {
         top: '100px',
-        right: '0px',
+        right: '40px',
       },
     });
 

@@ -13,7 +13,7 @@ export const {
   selectIds,
 } = gamesFeature;
 
-export const { selectQueryParams } = getSelectors();
+const { selectQueryParams } = getSelectors();
 
 export const selectComments = (id: number) =>
   createSelector(
