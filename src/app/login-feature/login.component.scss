@@ -10,23 +10,39 @@
 }
 
 mat-card {
-  width: 40%;
-}
-mat-card-header {
-  @include flex();
-}
+  width: 50%;
+  height: 55%;
 
-mat-card-actions {
-  @include flex();
-  button {
-    width: 70%;
+  mat-card-header {
+    @include flex();
   }
-}
 
-form {
-  @include flex(column);
+  mat-card-actions {
+    @include flex();
+    button {
+      width: 60%;
+    }
+  }
 
-  .inputField {
-    width: 70%;
+  form {
+    @include flex(column);
+    gap: 10px;
+
+    .inputField {
+      width: 60%;
+    }
+
+    .forgotPassword-wrapper {
+      width: 60%;
+      text-align: end;
+      span {
+        cursor: pointer;
+        line-height: 1.5rem;
+        &:hover {
+          color: #69f0ae;
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
