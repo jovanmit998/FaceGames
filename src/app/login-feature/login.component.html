@@ -7,14 +7,19 @@
       <mat-form-field appearance="fill" class="inputField">
         <mat-label>Username</mat-label>
         <input matInput formControlName="username" />
+        <mat-error>{{ form.controls.username.errors | error }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="inputField">
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password" />
+        <mat-error>{{ form.controls.password.errors | error }}</mat-error>
       </mat-form-field>
+      <div class="forgotPassword-wrapper">
+        <span>Forgot your password?</span>
+      </div>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Login</button>
+    <button mat-raised-button color="accent">Login</button>
   </mat-card-actions>
 </mat-card>
