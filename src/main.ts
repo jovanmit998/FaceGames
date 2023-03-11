@@ -15,6 +15,7 @@ import { gamesFeature } from './app/store/games.reducer';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { GameApiFailureEffects } from './app/effects/games-api-failure';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -29,7 +30,8 @@ bootstrapApplication(AppComponent, {
     provideEffects(
       GamesEffects,
       SideNavigationMenuEffects,
-      GamesNotificationsEffects
+      GamesNotificationsEffects,
+      GameApiFailureEffects
     ),
     provideRouterStore(),
     provideRouter(APP_ROUTES),
