@@ -8,7 +8,7 @@ import { gamesApiActions } from '../actions/games-api.actions';
 export class GamesNotificationsEffects {
   private readonly actions$ = inject(Actions);
   private readonly snackBar = inject(MatSnackBar);
-  readonly commentsNotificationSuccess = createEffect(
+  readonly gamesApiSuccessNotifications$ = createEffect(
     () => {
       return this.actions$.pipe(
         ofType(
