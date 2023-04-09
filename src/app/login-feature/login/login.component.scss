@@ -1,0 +1,17 @@
+@use "./../../styles/variables.scss" as *;
+
+.forgotPassword-wrapper {
+  text-align: end;
+  span {
+    line-height: 1.2rem;
+    &:hover {
+      cursor: pointer;
+      color: #69f0ae;
+      text-decoration: underline;
+    }
+  }
+}
+
+.register-text {
+  text-align: start;
+}

@@ -1,0 +1,57 @@
+@use "./../../styles/variables.scss" as *;
+
+:host {
+  height: 100%;
+  @include flex();
+  background-image: url("../../../assets/VideoGameBackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+:host ::ng-deep {
+  form {
+    @include flex(column);
+    gap: 10px;
+
+    .formField {
+      width: $form-elements-width;
+    }
+  }
+
+  mat-card-actions {
+    @include flex(column);
+    gap: 10px;
+    button {
+      width: $form-elements-width;
+    }
+  }
+
+  mat-card-header {
+    @include flex(column);
+  }
+
+  .link-text {
+    width: $form-elements-width;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .link-decoration {
+    color: #69f0ae;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+mat-card {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  mat-card {
+    width: 50%;
+  }
+}

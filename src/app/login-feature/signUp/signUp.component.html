@@ -1,0 +1,39 @@
+<mat-card-content>
+  <mat-card-header>
+    <h2>Create an account</h2>
+  </mat-card-header>
+  <form [formGroup]="form">
+    <ng-container *ngFor="let config of formConfig | keyvalue : orderDefault">
+      <mat-form-field appearance="fill" class="formField">
+        <mat-label>{{ config.key }}</mat-label>
+        <input
+          matInput
+          [formControlName]="config.value"
+          [type]="config.value"
+        />
+        <mat-error>{{ form.controls[config.value].errors | error }}</mat-error>
+      </mat-form-field>
+    </ng-container>
+    <mat-form-field appearance="fill" class="formField date-picker">
+      <mat-label>Your birthday</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="dateOfBirth"
+        class="test"
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>{{ form.controls.dateOfBirth.errors | error }}</mat-error>
+    </mat-form-field>
+  </form>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-raised-button color="accent">Continue</button>
+  <span class="have-acc link-text link-decoration" (click)="backToLogin()"
+    >Already have an account?</span
+  >
+</mat-card-actions>
