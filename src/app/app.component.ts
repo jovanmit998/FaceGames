@@ -21,7 +21,6 @@ import { selectIsLoginPage } from './store/router.selectors';
   ],
 })
 export class AppComponent {
-  title = 'steam-app';
   private readonly store = inject(Store);
   readonly isLoginPage = this.store.select(selectIsLoginPage);
 }

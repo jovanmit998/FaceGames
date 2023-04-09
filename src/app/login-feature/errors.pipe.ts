@@ -6,6 +6,7 @@ const errorList = {
   minlength: (minLength: number) => `Min length is ${minLength}`,
   pattern:
     'Password must have one uppercase character and one numeric character',
+  email: 'Email is not in valid',
 };
 
 @Pipe({

@@ -1,0 +1,29 @@
+<mat-card-content>
+  <mat-card-header>
+    <h1>Welcome to FaceGames</h1>
+    <h3>We are so glad to see you again</h3>
+  </mat-card-header>
+  <form [formGroup]="form">
+    <ng-container *ngFor="let config of formConfig | keyvalue : orderDefault">
+      <mat-form-field appearance="fill" class="formField">
+        <mat-label>{{ config.key }}</mat-label>
+        <input
+          matInput
+          [formControlName]="config.value"
+          [type]="config.value"
+        />
+        <mat-error>{{ form.controls[config.value].errors | error }}</mat-error>
+      </mat-form-field>
+    </ng-container>
+  </form>
+</mat-card-content>
+<mat-card-actions>
+  <div class="forgotPassword-wrapper link-text">
+    <span (click)="onPasswordReset()">Forgot your password?</span>
+  </div>
+  <button mat-raised-button color="accent" (click)="login()">Login</button>
+  <div class="register-text link-text">
+    Don't have an account?
+    <span class="link-decoration" (click)="onRegister()"> Register here </span>
+  </div>
+</mat-card-actions>

@@ -1,0 +1,9 @@
+@use "./../../styles/variables.scss" as *;
+
+.have-acc {
+  text-align: start;
+}
+
+.date-picker ::ng-deep .mat-form-field-infix {
+  display: flex;
+}
