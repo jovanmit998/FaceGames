@@ -12,10 +12,10 @@ import {
   getEmailControl,
   getPasswordControl,
   getUsernameControl,
-} from '../form-controls';
-import { LoginStore } from '../login.store';
+} from '../util/form-controls';
 import { MatNativeDateModule } from '@angular/material/core';
-import { signUpForm } from '../form-configurations';
+import { signUpForm } from '../util/form-configurations';
+import { defaultOrder, navigate } from '../util/form-helper';
 
 @Component({
   selector: 'app-signUp',
@@ -38,8 +38,8 @@ import { signUpForm } from '../form-configurations';
 })
 export class SignUpComponent {
   formConfig = signUpForm;
-  private readonly loginStore = inject(LoginStore);
-  readonly orderDefault = this.loginStore.orderById;
+  readonly orderDefault = defaultOrder;
+  private readonly navigateTo = navigate();
 
   form = new FormGroup({
     email: getEmailControl(),
@@ -49,6 +49,6 @@ export class SignUpComponent {
   });
 
   backToLogin() {
-    this.loginStore.navigateTo('');
+    this.navigateTo('');
   }
 }

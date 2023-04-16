@@ -6,8 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ErrorPipe } from '../errors.pipe';
-import { forgotPasswordForm } from '../form-configurations';
-import { getEmailControl, getPasswordControl } from '../form-controls';
+import { forgotPasswordForm } from '../util/form-configurations';
+import { getEmailControl, getPasswordControl } from '../util/form-controls';
 
 @Component({
   selector: 'app-forgot-password',
