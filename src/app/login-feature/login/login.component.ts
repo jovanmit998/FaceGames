@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ErrorPipe } from '../errors.pipe';
-import { loginForm } from '../form-configurations';
-import { getPasswordControl, getUsernameControl } from '../form-controls';
-import { LoginStore } from '../login.store';
+import { loginForm } from '../util/form-configurations';
+import { getPasswordControl, getUsernameControl } from '../util/form-controls';
+import { defaultOrder, navigate } from '../util/form-helper';
 
 @Component({
   selector: 'app-login',
@@ -29,8 +29,8 @@ import { LoginStore } from '../login.store';
 })
 export class LoginComponent {
   formConfig = loginForm;
-  private readonly loginStore = inject(LoginStore);
-  readonly orderDefault = this.loginStore.orderById;
+  readonly orderDefault = defaultOrder;
+  private readonly navigateTo = navigate();
 
   form = new FormGroup({
     username: getUsernameControl(),
@@ -38,11 +38,11 @@ export class LoginComponent {
   });
 
   onPasswordReset() {
-    this.loginStore.navigateTo('forgotPassword');
+    this.navigateTo('forgotPassword');
   }
 
   onRegister() {
-    this.loginStore.navigateTo('register');
+    this.navigateTo('register');
   }
 
   login() {}
