@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
-import { LetModule } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { ComponentStore } from '@ngrx/component-store';
 import { createSelector, Store } from '@ngrx/store';
 import { gamesPageActions } from '../../actions/games.page.actions';
@@ -40,7 +40,7 @@ interface LocalState {
   standalone: true,
   imports: [
     CommentsComponent,
-    LetModule,
+    LetDirective,
     MatIconModule,
     ReactiveFormsModule,
     MatFormFieldModule,

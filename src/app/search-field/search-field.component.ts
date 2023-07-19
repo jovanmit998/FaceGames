@@ -5,18 +5,14 @@ import {
   inject,
   OnInit,
 } from '@angular/core';
-import {
-  ReactiveFormsModule,
-  UntypedFormControl,
-  UntypedFormGroup,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
-import { LetModule } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { Store } from '@ngrx/store';
 import { debounceTime, tap } from 'rxjs';
 import { DialogMainComponent } from '../games-feature/games-dialog-container/games-dialog-container';
@@ -29,7 +25,7 @@ import { selectGameFromQueryParams } from '../store/games.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    LetModule,
+    LetDirective,
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -44,8 +40,8 @@ export class SearchFieldComponent implements OnInit {
   private readonly router = inject(Router);
 
   readonly filteredGames$ = this.store.select(selectGameFromQueryParams);
-  navForm: UntypedFormGroup = new UntypedFormGroup({
-    searchInput: new UntypedFormControl(''),
+  navForm = new FormGroup({
+    searchInput: new FormControl(''),
   });
 
   ngOnInit(): void {

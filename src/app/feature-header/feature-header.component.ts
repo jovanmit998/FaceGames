@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { LetModule } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { Store } from '@ngrx/store';
 import { navigationComponentActions } from '../actions/navigation-component.actions';
 import { SearchFieldComponent } from '../search-field/search-field.component';
@@ -17,8 +17,8 @@ import { selectIsSideMenuOpened } from '../store/games.selectors';
 
 @Component({
   selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
+  templateUrl: './feature-header.component.html',
+  styleUrls: ['./feature-header.component.scss'],
   animations: [
     trigger('navToggle', [
       state(
@@ -41,13 +41,13 @@ import { selectIsSideMenuOpened } from '../store/games.selectors';
   standalone: true,
   imports: [
     SearchFieldComponent,
-    LetModule,
+    LetDirective,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
   ],
 })
-export class NavigationComponent {
+export class HeaderComponent {
   private readonly store = inject(Store);
   readonly isSideMenuOpened = this.store.select(selectIsSideMenuOpened);
 

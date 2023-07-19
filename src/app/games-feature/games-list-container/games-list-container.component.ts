@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { LetModule } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { createSelector, Store } from '@ngrx/store';
 import { gamesPageActions } from 'src/app/actions/games.page.actions';
 import { SideNavigationComponent } from 'src/app/side-navigation/side-navigation.component';
@@ -24,7 +24,7 @@ import { GamesListComponent } from '../games-list/games-list.component';
   imports: [
     MatProgressSpinnerModule,
     SideNavigationComponent,
-    LetModule,
+    LetDirective,
     CommonModule,
     GamesListComponent,
   ],

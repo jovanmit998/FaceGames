@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ChatComponent } from './chat-feature/chat.component';
 import { FooterComponent } from './footer/footer.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { HeaderComponent } from './feature-header/feature-header.component';
 import { selectIsLoginPage } from './store/router.selectors';
 
 @Component({
@@ -15,7 +15,7 @@ import { selectIsLoginPage } from './store/router.selectors';
   imports: [
     FooterComponent,
     RouterModule,
-    NavigationComponent,
+    HeaderComponent,
     ChatComponent,
     CommonModule,
   ],

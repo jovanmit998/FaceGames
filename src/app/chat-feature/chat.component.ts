@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { LetModule } from '@ngrx/component';
+import { LetDirective } from '@ngrx/component';
 import { ComponentStore } from '@ngrx/component-store';
 import { DialogChatComponent } from './dialog-chat/dialog-chat.component';
 
@@ -22,7 +22,7 @@ interface ChatState {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ComponentStore],
   standalone: true,
-  imports: [MatIconModule, CommonModule, LetModule],
+  imports: [MatIconModule, CommonModule, LetDirective],
 })
 export class ChatComponent implements OnInit {
   private readonly chatDialog = inject(MatDialog);

@@ -2,7 +2,7 @@ import { Dictionary } from '@ngrx/entity';
 import { createSelector } from '@ngrx/store';
 import { Game } from '../models/data.mode';
 import { gamesFeature } from './games.reducer';
-import { getSelectors } from '@ngrx/router-store';
+import { getRouterSelectors } from '@ngrx/router-store';
 
 export const {
   selectIsLoading,
@@ -13,7 +13,7 @@ export const {
   selectIds,
 } = gamesFeature;
 
-const { selectQueryParams } = getSelectors();
+const { selectQueryParams } = getRouterSelectors();
 
 export const selectComments = (id: number) =>
   createSelector(
