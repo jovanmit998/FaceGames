@@ -1,0 +1,9 @@
+<mat-card>
+  <ng-container *ngrxLet="currentForm as form">
+    <app-login *ngIf="!form"></app-login>
+    <app-forgot-password
+      *ngIf="form === 'forgotPassword'"
+    ></app-forgot-password>
+    <app-signUp *ngIf="form === 'register'"></app-signUp>
+  </ng-container>
+</mat-card>

@@ -33,8 +33,8 @@ interface LocalState {
 
 @Component({
   selector: 'app-dialog-main',
-  templateUrl: './games-dialog-container.html',
-  styleUrls: ['./games-dialog-container.scss'],
+  templateUrl: './games-dialog.html',
+  styleUrls: ['./games-dialog.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ComponentStore],
   standalone: true,

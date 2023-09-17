@@ -12,7 +12,7 @@ import { createSelector, Store } from '@ngrx/store';
 import { gamesPageActions } from 'src/app/actions/games.page.actions';
 import { SideNavigationComponent } from 'src/app/side-navigation/side-navigation.component';
 import { selectEntities, selectIsLoading } from 'src/app/store/games.selectors';
-import { DialogMainComponent } from '../games-dialog-container/games-dialog-container';
+import { DialogMainComponent } from '../games-dialog/games-dialog';
 import { GamesListComponent } from '../games-list/games-list.component';
 
 @Component({

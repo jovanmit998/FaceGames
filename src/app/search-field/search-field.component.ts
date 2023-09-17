@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 import { LetDirective } from '@ngrx/component';
 import { Store } from '@ngrx/store';
 import { debounceTime, tap } from 'rxjs';
-import { DialogMainComponent } from '../games-feature/games-dialog-container/games-dialog-container';
+import { DialogMainComponent } from '../games-feature/games-dialog/games-dialog';
 import { selectGameFromQueryParams } from '../store/games.selectors';
 
 @Component({

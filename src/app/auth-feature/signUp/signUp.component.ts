@@ -49,6 +49,11 @@ export class SignUpComponent {
   });
 
   backToLogin() {
-    this.navigateTo('');
+    this.navigateTo(null);
+  }
+
+  signUp() {
+    this.form.markAllAsTouched();
+    if (this.form.invalid) return;
   }
 }

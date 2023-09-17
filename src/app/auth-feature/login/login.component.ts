@@ -45,5 +45,8 @@ export class LoginComponent {
     this.navigateTo('register');
   }
 
-  login() {}
+  login() {
+    this.form.markAllAsTouched();
+    if (this.form.invalid) return;
+  }
 }

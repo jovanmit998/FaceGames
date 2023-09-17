@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogMainComponent } from './games-dialog-container';
+import { DialogMainComponent } from './games-dialog';
 
 describe('DialogMainComponent', () => {
   let component: DialogMainComponent;

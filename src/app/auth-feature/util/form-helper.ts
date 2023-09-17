@@ -2,7 +2,7 @@ import { KeyValue } from '@angular/common';
 import { inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-type loginRoutes = 'forgotPassword' | 'register' | '';
+type loginRoutes = 'forgotPassword' | 'register' | null;
 
 export function defaultOrder(
   a: KeyValue<string, string>,
@@ -16,8 +16,9 @@ export const navigate = () => {
   const activatedRoute = inject(ActivatedRoute);
 
   return (route: loginRoutes) => {
-    router.navigate([route], {
+    router.navigate([], {
       relativeTo: activatedRoute,
+      queryParams: { form: route },
     });
   };
 };
