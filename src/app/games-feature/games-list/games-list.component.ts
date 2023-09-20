@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Dictionary } from '@ngrx/entity';
-import { Game } from 'src/app/models/data.mode';
+import { Game } from 'src/app/games-feature/models/games-data.model';
 
 @Component({
   selector: 'app-games',

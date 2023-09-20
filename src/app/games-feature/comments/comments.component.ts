@@ -12,7 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { Comment } from 'src/app/models/data.mode';
+import { Comment } from 'src/app/games-feature/models/games-data.model';
 
 @Component({
   selector: 'app-comments',

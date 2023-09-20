@@ -1,9 +1,24 @@
-import { EntityAdapter, createEntityAdapter, EntityState } from '@ngrx/entity';
-import { createFeature, createReducer, on } from '@ngrx/store';
-import { gamesApiActions } from '../actions/games-api.actions';
-import { gamesPageActions } from '../actions/games.page.actions';
+import {
+  EntityAdapter,
+  createEntityAdapter,
+  EntityState,
+  Dictionary,
+} from '@ngrx/entity';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
+import { gamesApiActions } from './actions/games-api.actions';
 import { navigationComponentActions } from '../actions/navigation-component.actions';
-import { Game } from '../models/data.mode';
+import { Game } from './models/games-data.model';
+import { getRouterSelectors } from '@ngrx/router-store';
+import { gamesPageActions } from './actions/games.page.actions';
+
+type gameProperties = 'comments' | 'name' | 'rate' | 'description';
+
+const test = {
+  comments: null as Comment[],
+  name: null as string,
+  rate: null as number,
+  description: null as string,
+};
 
 interface State extends EntityState<Game> {
   isLoading: boolean;
@@ -88,7 +103,44 @@ export const reducer = createReducer(
   }))
 );
 
-const feature = createFeature({ name: 'games', reducer });
-const entitySelector = adapter.getSelectors(feature.selectGamesState);
+const { selectQueryParams } = getRouterSelectors();
 
-export const gamesFeature = { ...feature, ...entitySelector };
+export const gamesFeature = createFeature({
+  name: 'games',
+  reducer,
+  extraSelectors: ({ selectGamesState, selectEntities }) => {
+    const { selectAll } = adapter.getSelectors(selectGamesState);
+
+    return {
+      selectAll,
+      selectGameProperty: <T>(property: gameProperties, id: number) =>
+        createSelector(
+          selectEntities,
+          (games: Dictionary<Game>) => games[id][property] as T
+        ),
+      selectGameName: (partialName: string) =>
+        createSelector(selectAll, (games: Game[]) =>
+          games.filter((game) =>
+            game.name
+              .toLowerCase()
+              .startsWith(partialName.toLowerCase() || null)
+          )
+        ),
+      selectGameFromQueryParams: createSelector(
+        selectQueryParams,
+        selectAll,
+        (query, games) => {
+          if (query?.['gameName']) {
+            return games.filter((game) =>
+              game.name
+                .toLowerCase()
+                .startsWith(query['gameName'].toLowerCase() || null)
+            );
+          }
+
+          return null;
+        }
+      ),
+    };
+  },
+});

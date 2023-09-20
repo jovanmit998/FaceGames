@@ -19,13 +19,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { LetDirective } from '@ngrx/component';
 import { ComponentStore } from '@ngrx/component-store';
 import { createSelector, Store } from '@ngrx/store';
-import { gamesPageActions } from '../../actions/games.page.actions';
-import {
-  selectComments,
-  selectDescription,
-  selectName,
-} from '../../store/games.selectors';
+import { gamesFeature } from '../games.state';
 import { CommentsComponent } from '../comments/comments.component';
+import { Comment } from 'src/app/games-feature/models/games-data.model';
+import { gamesPageActions } from '../actions/games.page.actions';
 
 interface LocalState {
   comment: string;
@@ -118,7 +115,7 @@ export class DialogMainComponent implements OnInit {
 
 const viewModelGameDialog = (id: number) =>
   createSelector({
-    name: selectName(id),
-    description: selectDescription(id),
-    comments: selectComments(id),
+    name: gamesFeature.selectGameProperty<string>('name', id),
+    description: gamesFeature.selectGameProperty<string>('description', id),
+    comments: gamesFeature.selectGameProperty<Comment[]>('comments', id),
   });

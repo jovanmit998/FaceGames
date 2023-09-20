@@ -9,11 +9,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LetDirective } from '@ngrx/component';
 import { createSelector, Store } from '@ngrx/store';
-import { gamesPageActions } from 'src/app/actions/games.page.actions';
 import { SideNavigationComponent } from 'src/app/side-navigation/side-navigation.component';
-import { selectEntities, selectIsLoading } from 'src/app/store/games.selectors';
 import { DialogMainComponent } from '../games-dialog/games-dialog';
 import { GamesListComponent } from '../games-list/games-list.component';
+import { gamesFeature } from '../games.state';
+import { gamesPageActions } from '../actions/games.page.actions';
 
 @Component({
   selector: 'app-games-list-container',
@@ -59,6 +59,6 @@ export class GamesListContainerComponent implements OnInit {
 }
 
 const viewModel = createSelector({
-  isLoading: selectIsLoading,
-  games: selectEntities,
+  isLoading: gamesFeature.selectIsLoading,
+  games: gamesFeature.selectEntities,
 });

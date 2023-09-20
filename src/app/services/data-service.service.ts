@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { delay, Observable } from 'rxjs';
-import { Game, Comment } from '../models/data.mode';
+import { Game, Comment } from '../games-feature/models/games-data.model';
 
 interface httpResponse {
   status: number;

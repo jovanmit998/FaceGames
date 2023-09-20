@@ -16,8 +16,7 @@ import { LetDirective } from '@ngrx/component';
 import { Store } from '@ngrx/store';
 import { debounceTime, tap } from 'rxjs';
 import { DialogMainComponent } from '../games-feature/games-dialog/games-dialog';
-import { selectGameFromQueryParams } from '../store/games.selectors';
-
+import { gamesFeature } from '../games-feature/games.state';
 @Component({
   selector: 'app-search-field',
   templateUrl: './search-field.component.html',
@@ -39,7 +38,9 @@ export class SearchFieldComponent implements OnInit {
   private readonly dialog = inject(MatDialog);
   private readonly router = inject(Router);
 
-  readonly filteredGames$ = this.store.select(selectGameFromQueryParams);
+  readonly filteredGames$ = this.store.select(
+    gamesFeature.selectGameFromQueryParams
+  );
   navForm = new FormGroup({
     searchInput: new FormControl(''),
   });

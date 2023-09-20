@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, concatMap, map, mergeMap, of, switchMap } from 'rxjs';
 import { gamesApiActions } from '../actions/games-api.actions';
 import { gamesPageActions } from '../actions/games.page.actions';
-import { DataService } from '../services/data-service.service';
+import { DataService } from 'src/app/services/data-service.service';
 
 Injectable();
 export class GamesEffects {

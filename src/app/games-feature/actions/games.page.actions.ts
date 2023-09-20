@@ -1,6 +1,6 @@
 import { Update } from '@ngrx/entity';
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Comment, Game } from '../models/data.mode';
+import { Comment, Game } from '../models/games-data.model';
 
 export const gamesPageActions = createActionGroup({
   source: 'Games Page',

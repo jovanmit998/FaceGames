@@ -4,8 +4,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { Store } from '@ngrx/store';
 import { navigationComponentActions } from '../actions/navigation-component.actions';
 import { SideNavContentComponent } from '../side-nav-content/side-nav-content.component';
-import { selectIsSideMenuOpened } from '../store/games.selectors';
-
+import { gamesFeature } from '../games-feature/games.state';
 @Component({
   selector: 'app-side-navigation',
   templateUrl: './side-navigation.component.html',
@@ -16,7 +15,9 @@ import { selectIsSideMenuOpened } from '../store/games.selectors';
 })
 export class SideNavigationComponent {
   private readonly store = inject(Store);
-  readonly isSideNavigationOpened = this.store.select(selectIsSideMenuOpened);
+  readonly isSideNavigationOpened = this.store.select(
+    gamesFeature.selectIsSideMenuOpened
+  );
 
   closeNavigationSideMenu() {
     this.store.dispatch(

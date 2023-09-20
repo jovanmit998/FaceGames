@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createActionGroup, props } from '@ngrx/store';
-import { Game } from '../models/data.mode';
+import { Game } from '../models/games-data.model';
 
 export const gamesApiActions = createActionGroup({
   source: 'Games Api',

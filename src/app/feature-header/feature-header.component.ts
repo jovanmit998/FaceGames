@@ -13,8 +13,7 @@ import { LetDirective } from '@ngrx/component';
 import { Store } from '@ngrx/store';
 import { navigationComponentActions } from '../actions/navigation-component.actions';
 import { SearchFieldComponent } from '../search-field/search-field.component';
-import { selectIsSideMenuOpened } from '../store/games.selectors';
-
+import { gamesFeature } from '../games-feature/games.state';
 @Component({
   selector: 'app-navigation',
   templateUrl: './feature-header.component.html',
@@ -49,7 +48,9 @@ import { selectIsSideMenuOpened } from '../store/games.selectors';
 })
 export class HeaderComponent {
   private readonly store = inject(Store);
-  readonly isSideMenuOpened = this.store.select(selectIsSideMenuOpened);
+  readonly isSideMenuOpened = this.store.select(
+    gamesFeature.selectIsSideMenuOpened
+  );
 
   openSideMenu(isCurrentlyOpen: boolean) {
     this.store.dispatch(
