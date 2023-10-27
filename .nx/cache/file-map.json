@@ -91,7 +91,7 @@
         },
         {
           "file": ".nx/cache/d/daemon.log",
-          "hash": "17682698711475880820"
+          "hash": "14300660368610869919"
         },
         {
           "file": ".nx/cache/d/server-process.json",
@@ -99,7 +99,7 @@
         },
         {
           "file": ".nx/cache/file-map.json",
-          "hash": "9187400209560243565"
+          "hash": "629359720046788675"
         },
         {
           "file": ".nx/cache/lockfile.hash",
@@ -900,6 +900,18 @@
         {
           "file": "tsconfig.spec.json",
           "hash": "17198424518534092990"
+        },
+        {
+          "file": ".nx/cache/project-graph.json~b44553ec",
+          "hash": "12269113062177197924"
+        },
+        {
+          "file": ".nx/cache/project-graph.json~f8b98657",
+          "hash": "12269113062177197924"
+        },
+        {
+          "file": ".nx/cache/project-graph.json~baecab6b",
+          "hash": "12269113062177197924"
         }
       ],
       "libs-core-feature-home": [
