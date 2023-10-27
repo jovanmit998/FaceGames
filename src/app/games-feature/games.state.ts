@@ -13,13 +13,6 @@ import { gamesPageActions } from './actions/games.page.actions';
 
 type gameProperties = 'comments' | 'name' | 'rate' | 'description';
 
-const test = {
-  comments: null as Comment[],
-  name: null as string,
-  rate: null as number,
-  description: null as string,
-};
-
 interface State extends EntityState<Game> {
   isLoading: boolean;
   isSideMenuOpened: boolean;
